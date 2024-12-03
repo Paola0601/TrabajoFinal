@@ -18,6 +18,7 @@ if (defined($pagina)) {
     # Leemos el contenido de la página encontrada
     open(my $fh, $pagina) or die "No se puede abrir el archivo: $!";
 
+    # Guardamos el contenido de la página en un string
     my $contenido = '';
     while (my $linea = <$fh>) {
         $contenido .= $linea;
