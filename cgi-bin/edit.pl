@@ -14,15 +14,15 @@ print "Content-type: text/html; charset=UTF-8\n\n";
 
 # Obtener el nombre de la página desde la URL (QUERY_STRING)
 my $consulta = param('fn');
-my $pagina = "pages/$query.md";
+my $pagina = "pages/$consulta.md";
 
 if (defined($pagina)) {
     # Leemos el contenido de la página encontrada
-    open(my $fh, $pagina) or die "No se puede abrir el archivo: $!";
+    open(my $FH, $pagina) or die "No se puede abrir el archivo: $!";
 
     # Guardamos el contenido de la página en un string
     my $contenido = '';
-    while (my $linea = <$fh>) {
+    while (my $linea = <$FH>) {
         $contenido .= $linea;
     }
     close($fh);

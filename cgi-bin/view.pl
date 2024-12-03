@@ -22,7 +22,7 @@ my $archivo = "pages/$consulta.md";
 # Verificar si el archivo existe
 if (defined($archivo)) {
     # Abrimos el archivo
-    open(my $fh, $archivo) or do {
+    open(my $FH, $archivo) or do {
         print "<h1>Error</h1>";
         print "<p>No se puede abrir el archivo: $!</p>";
         exit;
@@ -30,7 +30,7 @@ if (defined($archivo)) {
 
     # Extraemos el contenido
     my $contenido = '';
-    while (my $linea = <$fh>) {
+    while (my $linea = <$FH>) {
         $contenido .= $linea;
     }
     close($fh);
