@@ -1,18 +1,21 @@
 #!/usr/bin/perl
+
 use strict;
 use warnings;
-use utf8;
-use Encode qw(decode);
+use URI::Escape;
+use CGI qw(:standard);
 use Text::Markdown qw(markdown);
 
 # Configuramos la codificación de entrada y de salida
 binmode STDOUT, ":encoding(UTF-8)";
 binmode STDIN, ":encoding(UTF-8)";
 
-print "Content-type: text/html; charset=UTF-8";
+print "Content-type: text/html; charset=UTF-8\n\n";
 
 # Usamos la variable de entorno QUERY_STRING para la url después del ?
 my $consulta = $ENV{'QUERY_STRING'};
+$consulta =~ s/fn=//;
+$consulta = uri_unescape($consulta);
 # Ruta del archivo en nuestro directorio
 my $archivo = "pages/$consulta.md";
 
