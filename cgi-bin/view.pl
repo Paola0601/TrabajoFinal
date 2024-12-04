@@ -19,7 +19,7 @@ $consulta = uri_unescape($consulta);
 # Ruta del archivo en nuestro directorio
 my $archivo = "pages/$consulta.md";
 
-print <<HTML
+print <<HTML;
 <!DOCTYPE html>
 <html lang="es">
 <head>

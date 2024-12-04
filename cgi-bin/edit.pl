@@ -16,7 +16,7 @@ print "Content-type: text/html; charset=UTF-8\n\n";
 my $consulta = param('fn');
 my $pagina = "pages/$consulta.md";
 
-print <<HTML
+print <<HTML;
 <!DOCTYPE html>
 <html lang="es">
 <head>
