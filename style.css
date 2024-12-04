@@ -53,3 +53,53 @@ td {
 td strong {
     color: #010002;  
 }
+
+a {
+    text-decoration: none;
+    color: #000000;  
+}
+
+a:hover {
+    color: #88a8e2;  
+    text-decoration: underline;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    background-color: #3d84b4;  
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+}
+
+ul li a:hover {
+    background-color: #d6cfcf;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #6eb2f1;  
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+footer p {
+    font-size: 1em;
+    color: #ffffff;
+}
