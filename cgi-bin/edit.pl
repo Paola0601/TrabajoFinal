@@ -16,9 +16,20 @@ print "Content-type: text/html; charset=UTF-8\n\n";
 my $consulta = param('fn');
 my $pagina = "pages/$consulta.md";
 
+print <<HTML
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Wikipedia</title>
+</head>
+<body>
+HTML
+
+
 if (-e $pagina && $consulta =~ /^[a-zA-Z0-9_-]+$/) {
     # Leemos el contenido de la página encontrada
-    open(my $FH, $pagina) or die "No se puede abrir el archivo: $!";
+    open(my $FH, $pagina) or die "<h3>No se puede abrir el archivo: $!</h3>";
 
     # Guardamos el contenido de la página en un string
     my $contenido = '';
@@ -31,7 +42,7 @@ if (-e $pagina && $consulta =~ /^[a-zA-Z0-9_-]+$/) {
     print "<form action='update.pl' method='POST'>";
     print "<textarea name='content' rows='10' cols='50'>$contenido</textarea><br>";
     print "<input type='submit' value='Guardar Cambios'>";
-    print "</form>";
+    print "</form></body></html>";
 } else {
-    print "<p>Página no encontrada.</p>";
+    print "<p>Página no encontrada.</p></body></html>";
 }
