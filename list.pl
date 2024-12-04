@@ -36,3 +36,6 @@ while (my $file = readdir($dir)) {
     print "</li>";
 }
 closedir($dir);
+
+print "</ul>";
+print "<p><a href='new.pl'>Nueva Página</a></p>";
