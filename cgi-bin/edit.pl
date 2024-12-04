@@ -16,7 +16,7 @@ print "Content-type: text/html; charset=UTF-8\n\n";
 my $consulta = param('fn');
 my $pagina = "pages/$consulta.md";
 
-if (defined($pagina)) {
+if (-e $pagina && $consulta =~ /^[a-zA-Z0-9_-]+$/) {
     # Leemos el contenido de la página encontrada
     open(my $FH, $pagina) or die "No se puede abrir el archivo: $!";
 
@@ -25,7 +25,7 @@ if (defined($pagina)) {
     while (my $linea = <$FH>) {
         $contenido .= $linea;
     }
-    close($fh);
+    close($FH);
 
     print "<h1>Editar Página: $consulta</h1>";
     print "<form action='update.pl' method='POST'>";
