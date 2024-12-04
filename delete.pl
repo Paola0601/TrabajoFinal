@@ -5,5 +5,8 @@ use CGI qw(:standard);
 
 print "Content-type: text/html; charset=UTF-8\n\n";
 
+# Obtener el nombre de la página desde la URL
+my $query = param('fn');
+$query =~ s/[^a-zA-Z0-9_-]//g;  # Sanitizar el nombre del archivo
 
 
