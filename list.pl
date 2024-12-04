@@ -16,3 +16,10 @@ unless (-d $dir_path) {
 }
 # Intentar abrir el directorio
 opendir(my $dir, $dir_path) or die "No se puede abrir el directorio: $!";
+
+while (my $file = readdir($dir)) {
+    next if ($file =~ m/^\./); # Saltar archivos ocultos (p. ej., . y ..)
+    my $name = $file;
+    $name =~ s/\.md$//;  # Eliminar la extensión '.md'
+}
+closedir($dir);
