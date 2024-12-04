@@ -14,10 +14,12 @@ if (-e $file) {
     # Eliminar el archivo
     unlink($file) or die "No se pudo eliminar el archivo: $!";
 
-
-
-
-
-
-
     
+    print "<h1>Pagina eliminada</h1>";
+    print "<p>La pagina '$query' ha sido eliminada exitosamente.</p>";
+    print "<p><a href='list.pl'>Volver al Listado</a></p>";
+
+
+
+
+
