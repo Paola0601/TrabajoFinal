@@ -21,5 +21,18 @@ while (my $file = readdir($dir)) {
     next if ($file =~ m/^\./); # Saltar archivos ocultos (p. ej., . y ..)
     my $name = $file;
     $name =~ s/\.md$//;  # Eliminar la extensión '.md'
+     # Escapar el nombre del archivo para que sea seguro en la URL
+    my $escaped_name = uri_escape($name);
+
+    print "<li>";
+    print "<a href='view.pl?fn=$escaped_name'>$name</a>";
+    
+    # Botón de Editar (E) que abre la página en modo edición
+    print " <a href='edit.pl?fn=$escaped_name'>[E]</a>";
+
+    # Botón de Eliminar (X) que elimina la página
+    print " <a href='delete.pl?fn=$escaped_name' onclick='return confirm(\"¿Estás seguro de que quieres eliminar esta página?\");'>[X]</a>";
+
+    print "</li>";
 }
 closedir($dir);
