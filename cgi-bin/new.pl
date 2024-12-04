@@ -28,3 +28,28 @@ if ($ENV{'REQUEST_METHOD'} eq "GET") {
 </html>
 EOF
 }
+
+
+if ($ENV{'REQUEST_METHOD'} eq "POST") {
+
+    read(STDIN, my $post_data, $ENV{'CONTENT_LENGTH'});
+
+
+    my ($title, $content) = $post_data =~ /title=([^&]*)&content=(.*)/;
+
+    $title = uri_unescape($title);
+    $content = uri_unescape($content);
+    
+  
+    mkdir 'pages' unless -d 'pages';
+
+
+    open(my $fh, '>', "pages/$title.md") or die "No puedo guardar la página: $!\n";
+    
+
+    print $fh $content;
+    close($fh);
+    
+
+    print "<p>Página creada con éxito: <a href='list.pl'>Listado de Páginas</a></p>";
+}
