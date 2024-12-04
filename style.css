@@ -34,3 +34,22 @@ table {
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    color: rgb(255, 255, 255);
+}
+
+th {
+    background-color: #0c71c4;  
+}
+
+td {
+    background-color: #5997dd; 
+    font-size: 1.2em;
+}
+
+td strong {
+    color: #010002;  
+}
