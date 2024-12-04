@@ -14,3 +14,5 @@ unless (-d $dir_path) {
     print "<p>Error: El directorio 'pages' no existe.</p>";
     exit;
 }
+# Intentar abrir el directorio
+opendir(my $dir, $dir_path) or die "No se puede abrir el directorio: $!";
