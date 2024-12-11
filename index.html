@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Wiki</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmacia - Inicio</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <div class="titulo">
+    <header>
+        <h1>Farmacia</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="login.html">Iniciar Sesión</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <h1>Nuestras paginas de wiki</h1>
-</div>
-
-   
-
-    <div class="contenido">
-       <h1>Hola soy PAOLA</h1>
-        <ul>
-            <li><a href="cgi-bin/list.pl">Listado de Páginas</a></li>
-            <li><a href="cgi-bin/new.pl">Crear Nueva Página</a></li>
-        </ul>
-    </div>
+    <main>
+        <section class="productos">
+            <h2>Nuestros Productos</h2>
+            <div class="producto">
+                <img src="img/producto1.jpg" alt="Producto 1">
+                <h3>Producto 1</h3>
+                <p>Descripción breve del producto.</p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <!-- Repite para más productos -->
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; Hecho por Rodrigo,Fabricio,Paola,Renato</p>
+        <p>&copy; 2024 Farmacia. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
