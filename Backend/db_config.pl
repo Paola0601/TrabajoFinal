@@ -5,11 +5,10 @@ use DBI;
 
 # Hacemos el método que se conectará a la base de datos
 sub conectar_db {
-    # Se recibe en un arreglo el usuario y su contraseña
-    my @datos = @_;
+    # El usuario root es el que accede a los permisos en la base de datos
     my $dsn = "DBI:mysql:database=farmacia;host=mariadb";
-    my $usuario = $datos[0];
-    my $contrasena = $datos[1];
+    my $usuario = "root";
+    my $contrasena = "contraseña";
 
     my $dbh = DBI->connect($dsn, $usuario, $contrasena, {
         RaiseError => 1,
