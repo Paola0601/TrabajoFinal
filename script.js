@@ -17,3 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
             img.style.transform = "scale(1)";
         });
     });
+    const productItems = document.querySelectorAll(".product-item");
+    const productDetail = document.querySelector(".product-detail");
+    const detailImages = document.querySelector(".detail-images");
+    const closeButton = document.querySelector(".close-detail");
+
+    productItems.forEach((item) => {
+        item.addEventListener("click", () => {
