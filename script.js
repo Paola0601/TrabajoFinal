@@ -37,3 +37,4 @@ document.addEventListener("DOMContentLoaded", () => {
             setupCarousel();
         });
     });
+    closeButton.addEventListener("click", () => {
