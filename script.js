@@ -26,3 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
         item.addEventListener("click", () => {
             const productImages = item.dataset.images.split(",");
             productDetail.style.display = "block";
+            detailImages.innerHTML = "";
+            productImages.forEach((src, index) => {
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = `Producto ${index + 1}`;
+                img.className = "carousel-image";
+                detailImages.appendChild(img);
