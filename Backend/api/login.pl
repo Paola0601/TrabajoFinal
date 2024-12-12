@@ -5,7 +5,7 @@ use CGI;
 require "db_config.pl";
 
 my $cgi = CGI->new;
-print $cgi->header('application/json');
+print $cgi->header('text/html; charset=UTF-8');
 
 my $correo = $cgi->param('correo');
 my $password = $cgi->param('password');
@@ -22,7 +22,12 @@ sub validar_contrasena {
 
 # Validamos los campos del formulario
 if (!$correo || !$password) {
-    print '{"error": "Correo y contraseña son requeridos"}';
+    print "<!DOCTYPE html>";
+    print "<html><head><title>Errores de Registro</title>";
+    print "<link rel='stylesheet' href='../Fronted/estilos.css'></head><body>";
+    print "<p>Correo y contraseña deben estar llenos</p><ul>";
+    print "<a href='../Fronted/login.html'>Volver al formulario</a>";
+    print "</div></body></html>";
     exit;
 }
 
@@ -33,11 +38,26 @@ if (validar_contrasena($contrasena) && validar_correo($correo)) {
     my $sth = $dbh->prepare("SELECT id_usuario FROM usuarios WHERE correo = ? AND contraseña = ?");
     $sth->execute($correo, $password);
     if (my $row = $sth->fetchrow_hashref) {
-        print '{"success": "Inicio de sesión exitoso"}';
+        print "<!DOCTYPE html>";
+        print "<html><head><title>Errores de Registro</title>";
+        print "<link rel='stylesheet' href='../Fronted/estilos.css'></head><body>";
+        print "<p>Inicio de sesion exitoso</p><ul>";
+        print "<a href='../Fronted/login.html'>Volver al formulario</a>";
+        print "</div></body></html>";
     } else {
-        print '{"error": "Credenciales incorrectas"}';
+        print "<!DOCTYPE html>";
+        print "<html><head><title>Errores de Registro</title>";
+        print "<link rel='stylesheet' href='../Fronted/estilos.css'></head><body>";
+        print "<p>Credenciales incorrectas</p><ul>";
+        print "<a href='../Fronted/login.html'>Volver al formulario</a>";
+        print "</div></body></html>";
     }
     $dbh->disconnect;
 } else {
-    print '{"error": "Error en el correo o en la contraseña, por favor revisar"}';
+    print "<!DOCTYPE html>";
+    print "<html><head><title>Errores de Registro</title>";
+    print "<link rel='stylesheet' href='../Fronted/estilos.css'></head><body>";
+    print "<p>Correo y contraseña no válidos</p><ul>";
+    print "<a href='../Fronted/login.html'>Volver al formulario</a>";
+    print "</div></body></html>";
 }
