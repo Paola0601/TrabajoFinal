@@ -24,3 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     productItems.forEach((item) => {
         item.addEventListener("click", () => {
+            const productImages = item.dataset.images.split(",");
+            productDetail.style.display = "block";
