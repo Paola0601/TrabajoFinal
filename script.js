@@ -33,3 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 img.alt = `Producto ${index + 1}`;
                 img.className = "carousel-image";
                 detailImages.appendChild(img);
+            });
+            setupCarousel();
+        });
+    });
