@@ -7,3 +7,5 @@ document.addEventListener("DOMContentLoaded", () => {
             navBar.style.padding = "20px 50px";
         }
     });
+    const images = document.querySelectorAll(".img-container img");
+    images.forEach((img) => {
