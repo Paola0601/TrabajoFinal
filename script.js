@@ -9,3 +9,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const images = document.querySelectorAll(".img-container img");
     images.forEach((img) => {
+        img.style.transition = "transform 0.3s ease";
