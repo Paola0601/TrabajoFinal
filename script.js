@@ -40,7 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
     closeButton.addEventListener("click", () => {
         productDetail.style.display = "none";
     });
-    
+    function setupCarousel() {
+        const images = document.querySelectorAll(".carousel-image");
+        let currentIndex = 0;
 
 
 
