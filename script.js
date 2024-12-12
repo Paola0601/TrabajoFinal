@@ -52,5 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             showImage(currentIndex);
         });
+        document.querySelector(".next-btn").addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        });
 
 
