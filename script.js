@@ -43,7 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function setupCarousel() {
         const images = document.querySelectorAll(".carousel-image");
         let currentIndex = 0;
-
-
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.style.display = i === index ? "block" : "none";
+            });
+        }
 
 
