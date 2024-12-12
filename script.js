@@ -38,3 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     closeButton.addEventListener("click", () => {
+        productDetail.style.display = "none";
+    });
+    
+
+
+
+
