@@ -23,7 +23,7 @@ print <<HTML;
 </head>
 <body>
     <h1>¡Bienvenido a Farmacia!</h1>
-    <p>Has iniciado sesión correctamente.</p>
+    <p>Has iniciado sesión correctamente</p>
     <p>Correo electrónico: $email</p>
 </body>
 </html>
