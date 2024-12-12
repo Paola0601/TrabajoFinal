@@ -48,5 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 img.style.display = i === index ? "block" : "none";
             });
         }
+        document.querySelector(".prev-btn").addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        });
 
 
