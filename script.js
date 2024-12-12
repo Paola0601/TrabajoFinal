@@ -56,5 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
             currentIndex = (currentIndex + 1) % images.length;
             showImage(currentIndex);
         });
+        showImage(currentIndex);
+    }
+});
 
 
