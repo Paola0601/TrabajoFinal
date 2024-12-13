@@ -14,3 +14,7 @@ docker build -f Dockerfile -t mariadbfarmacia .
 docker run -d -p 8118:80 --name farmacia --network proyecto mariadbfarmacia 
 
 https//:localhost:8118
+docker network create proyecto
+docker run -d --name mariadb --network proyecto mi-mariadb
+docker rm -f mariadb
+docker run -d --name mariadb --network proyecto mi-mariadb
