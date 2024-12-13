@@ -1,6 +1,6 @@
 CONTENEDOR MARIADB
 # Comando para crear la imagen
-docker build -f Dockerfile -t mi-mariadb
+docker build -f Dockerfile -t mi-mariadb .
 
 # Comando para crear el contenedor
 docker run -d --name mariadb --network proyecto mi-mariadb
