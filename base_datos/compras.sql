@@ -21,12 +21,12 @@ USE `comprar`;
 
 -- Volcando estructura para tabla comprar.compras
 CREATE TABLE IF NOT EXISTS `compras` (
-  `id_compras` int(11) NOT NULL AUTO_INCREMENT,
+  `id_compra` int(11) NOT NULL AUTO_INCREMENT,
   `id_usuario` varchar(50) NOT NULL,
   `productos` varchar(50) NOT NULL,
   `total` decimal(20,6) NOT NULL DEFAULT 0.000000,
   `fecha` date NOT NULL DEFAULT '0000-00-00',
-  PRIMARY KEY (`id_compras`)
+  PRIMARY KEY (`id_compra`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Volcando datos para la tabla comprar.compras: ~0 rows (aproximadamente)
