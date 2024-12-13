@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 use CGI;
-require "db_config.pl";
+use DBI;
 
 my $cgi = CGI->new;
 print $cgi->header('text/html; charset=UTF-8');
@@ -33,8 +33,17 @@ if (!$correo  || !$password) {
 
 # Se ejecuta la consulta si es válida
 if (validar_contrasena($contrasena) && validar_correo($correo)) {
-    # Conectamos con la base de datos para que se cree el usuario y le pasamos el arreglo
-    my $dbh = conectar_db();
+    
+    # Conectamos con la base de datos
+    my $dsn = "DBI:mysql:database=register;host=mariadb";
+    my $usuario = "root";
+    my $contrasena = "contraseña";
+    my $dbh = DBI->connect($dsn, $usuario, $contrasena, {
+        RaiseError => 1,
+        AutoCommit => 1,
+    }) or die "No se pudo conectar a la base de datos: $DBI::errstr";
+    
+    # Realizamos la consulta
     my $sth = $dbh->prepare("INSERT INTO usuarios (correo, contraseña) VALUES (?, ?)");
     $sth->execute($correo, $password);
     if ($sth){
