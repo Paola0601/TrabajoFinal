@@ -19,16 +19,16 @@
 CREATE DATABASE IF NOT EXISTS `login` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 USE `login`;
 
--- Volcando estructura para tabla login.registrar
-CREATE TABLE IF NOT EXISTS `registrar` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `correo` varchar(50) DEFAULT NULL,
-  `contraseña` varchar(50) DEFAULT NULL,
-  `fecha_registro` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
+-- Volcando estructura para tabla login.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `contraseña` varchar(50) NOT NULL,
+  `fecha_registro` date NOT NULL,
+  PRIMARY KEY (`id_usuario`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Volcando datos para la tabla login.registrar: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla login.usuarios: ~0 rows (aproximadamente)
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

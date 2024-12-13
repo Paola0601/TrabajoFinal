@@ -19,8 +19,8 @@
 CREATE DATABASE IF NOT EXISTS `productos` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 USE `productos`;
 
--- Volcando estructura para tabla productos.productoss
-CREATE TABLE IF NOT EXISTS `productoss` (
+-- Volcando estructura para tabla productos.productos
+CREATE TABLE IF NOT EXISTS `productos` (
   `id_producto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(50) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `productoss` (
   PRIMARY KEY (`id_producto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Volcando datos para la tabla productos.productoss: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla productos.productos: ~0 rows (aproximadamente)
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
