@@ -15,11 +15,23 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Volcando estructura de base de datos para productos
-CREATE DATABASE IF NOT EXISTS `productos` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
-USE `productos`;
+-- Volcando estructura de base de datos para data_base
+CREATE DATABASE IF NOT EXISTS `data_base` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
+USE `data_base`;
 
--- Volcando estructura para tabla productos.productos
+-- Volcando estructura para tabla data_base.compras
+CREATE TABLE IF NOT EXISTS `compras` (
+  `id_compra` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` varchar(50) NOT NULL,
+  `productos` varchar(50) NOT NULL,
+  `total` decimal(20,6) NOT NULL DEFAULT 0.000000,
+  `fecha` date NOT NULL DEFAULT '0000-00-00',
+  PRIMARY KEY (`id_compra`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- Volcando datos para la tabla data_base.compras: ~0 rows (aproximadamente)
+
+-- Volcando estructura para tabla data_base.productos
 CREATE TABLE IF NOT EXISTS `productos` (
   `id_producto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
@@ -29,7 +41,19 @@ CREATE TABLE IF NOT EXISTS `productos` (
   PRIMARY KEY (`id_producto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Volcando datos para la tabla productos.productos: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla data_base.productos: ~0 rows (aproximadamente)
+
+-- Volcando estructura para tabla data_base.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `dni` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL DEFAULT '',
+  `correo` varchar(50) NOT NULL,
+  `contraseña` varchar(50) NOT NULL,
+  `fecha_registro` date NOT NULL,
+  PRIMARY KEY (`dni`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- Volcando datos para la tabla data_base.usuarios: ~0 rows (aproximadamente)
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
