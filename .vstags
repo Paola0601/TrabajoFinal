@@ -4,3 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+validar_correo	cgi-bin/login.pl	13;"	s
+validar_contrasena	cgi-bin/login.pl	18;"	s
+validar_correo	cgi-bin/registro.pl	14;"	s
+validar_contrasena	cgi-bin/registro.pl	18;"	s

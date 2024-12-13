@@ -1,111 +1,150 @@
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #92c8ec;
-    color: #333;  
     margin: 0;
     padding: 0;
-}
-.titulo{
-
-
-    background-color: #3f78c2;
-}
-.contenido{
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(233, 225, 225, 0.1);
-    margin-top: 20px; 
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-
-
-h1 {
-    text-align: center;
-    font-size: 3em;
-    color: #ffffff; 
-    margin-top: 0;
-}
-
-
-table {
+/* Header Fijo */
+header {
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    background-color: #3446ac; 
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-    color: rgb(255, 255, 255);
-}
-
-th {
-    background-color: #0c71c4;  
-}
-
-td {
-    background-color: #5997dd; 
-    font-size: 1.2em;
-}
-
-td strong {
-    color: #010002;  
-}
-
-
-a {
-    text-decoration: none;
-    color: #000000;  
-}
-
-a:hover {
-    color: #88a8e2;  
-    text-decoration: underline;
-}
-
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-ul li {
-    margin-bottom: 10px;
-}
-
-ul li a {
-    background-color: #3d84b4;  
-    padding: 10px;
-    border-radius: 4px;
+    background-color: #8232dd;
     color: white;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Contenedor header */
+#buscador {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#logo img {
+    height: 100px; 
+    width: auto; 
+}
+
+
+
+#search-bar {
+    flex: 1;
+    margin: 0 1rem;
+}
+
+#search-bar form {
+    display: flex;
+    align-items: center;
+}
+
+#search-bar input[type="text"] {
+    width: 80%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+}
+
+#search-bar button {
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;  /* Elimina o ajusta este margen */
+    border: none;
+    border-radius: 5px;
+    background-color: #bb99f3;
+    color: white;
+    cursor: pointer;
+}
+
+#search-bar button:hover {
+    background-color: #7b0f4c;
+}
+
+/* Botón de inicio sesion */
+#login-button button {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: #ddd; 
+    background-color: #9f65eb;
+    cursor: pointer;
+    display: flex;
+    margin-right: 5rem;
+    border: 2px solid white; 
+}
+
+#login-button button:hover {
+    color: rgb(138, 136, 136);
+    background-color: #7e4bc2; 
+    border-color: #bbb; 
+}
+
+#logout-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 80px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#logout-menu button {
     display: block;
-    width: 200px;
-    margin: 0 auto;
+    width: 100%;
+    padding: 8px;
+    background-color: #f4f4f4;
+    border: none;
+    cursor: pointer;
 }
 
-ul li a:hover {
-    background-color: #d6cfcf;
+#logout-menu button:hover {
+    background-color: #ddd;
 }
 
 
-footer {
+#cart-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#cart-button img {
+    height: 30px;
+    margin-right: 3rem;
+}
+
+
+main {
+    padding: 5rem 2rem 2rem;
+    min-height:76vh;
+}
+
+h2 {
     text-align: center;
-    padding: 20px;
-    background-color: #6eb2f1;  
-    margin-top: 20px;
-    border-radius: 8px;
+    margin-bottom: 1.5rem;
 }
 
-footer p {
-    font-size: 1em;
-    color: #ffffff;
+
+footer{
+    height: 50px;
+    background-color: #3d1086;
+    padding: 10px 0;
+    position: botom;
+    width: 100%;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    bottom: 0;
+    color: aliceblue;
 }
