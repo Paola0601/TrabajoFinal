@@ -28,3 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (event) => {
         const correo = form.querySelector('input[name="correo"]').value.trim();
         const contrasena = form.querySelector('input[name="password"]').value.trim();
+
+        if (!correo || !contrasena) {
+            event.preventDefault();
+            mostrarError(mensajesDeError.camposVacios);
+        } 
