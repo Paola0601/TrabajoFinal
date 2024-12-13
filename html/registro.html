@@ -4,50 +4,42 @@
     <title>Registro</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../css/registro.css">
+
 </head>
 <body>
     <div class="perfil">
-        <div class="perfil-header">
-            <h1>Crear cuenta</h1>
+        <div class="perfilTitulo">
+            <h1>Crear cuenta </h1>
         </div>
 
        
         <div id="error-container" class="error-container" style="display: none;">
-            <p id="error-message">Por favor corrige los errores en los campos marcados.</p>
+            <p id="error-message">Por favor corrige los errores .</p>
         </div>
 
         <form action="/cgi-bin/registro.pl" class="datos_personales" method="post">
             <div class="datos_personales">
                 <h3>Datos personales</h3>
-                <div class="input-group">
+                <div class="cajas">
                     <label>Nombre completo:</label>
                     <input type="text" id="nombreC" name="nombreC" class="input-label" placeholder="Nombres completos">
                 </div>
-                <div class="input-group">
+                <div class="cajas">
                     <label>Usuario de inicio de sesión (Correo):</label>
                     
                     <input type="email" name="nameSesionUsuario" class="input-label" placeholder="Correo electrónico" required>
                 </div>
-                <div class="input-group">
+                <div class="cajas">
                     <label>Contraseña:</label>
                     <input type="password" name="password" class="input-label" placeholder="Contraseña" required>
                 </div>
-                <div class="input-group">
+                <div class="cajas">
                     <label>Confirmar contraseña:</label>
                     <input type="password" name="password2" class="input-label" placeholder="Repetir contraseña" required>
                 </div>
             </div>
-
-            <div class="volver">
-                <input type="button" value="Volver" onclick="volverPerfil()" class="inicio" />
-                <input type="submit" value="Crear" class="inicio" />
-            </div>
-
-            <script>
-                function volverPerfil() {
-                    window.location.href = "index.html";
-                }
-            </script>
+           
         </form>
     </div>
 </body>

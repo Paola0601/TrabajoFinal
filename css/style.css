@@ -6,7 +6,6 @@ body {
     color: #333;
 }
 
-/* Header Fijo */
 header {
     height: 50px;
     position: fixed;
@@ -23,7 +22,6 @@ header {
     z-index: 1000;
 }
 
-/* Contenedor header */
 #buscador {
     display: flex;
     align-items: center;
@@ -57,7 +55,7 @@ header {
 
 #search-bar button {
     padding: 0.5rem 1rem;
-    margin-left: 0.5rem;  /* Elimina o ajusta este margen */
+    margin-left: 0.5rem; 
     border: none;
     border-radius: 5px;
     background-color: #bb99f3;
@@ -68,52 +66,6 @@ header {
 #search-bar button:hover {
     background-color: #7b0f4c;
 }
-
-/* Botón de inicio sesion */
-#login-button button {
-    margin-left: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    color: #ddd; 
-    background-color: #9f65eb;
-    cursor: pointer;
-    display: flex;
-    margin-right: 5rem;
-    border: 2px solid white; 
-}
-
-#login-button button:hover {
-    color: rgb(138, 136, 136);
-    background-color: #7e4bc2; 
-    border-color: #bbb; 
-}
-
-#logout-menu {
-    display: none;
-    position: absolute;
-    top: 40px;
-    right: 80px;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-#logout-menu button {
-    display: block;
-    width: 100%;
-    padding: 8px;
-    background-color: #f4f4f4;
-    border: none;
-    cursor: pointer;
-}
-
-#logout-menu button:hover {
-    background-color: #ddd;
-}
-
-
 #cart-button {
     display: flex;
     align-items: center;

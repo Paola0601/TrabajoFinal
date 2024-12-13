@@ -23,29 +23,18 @@ body {
     margin-right: auto;
   }
   
-  .perfil-header {
-    background-color: #086444;
-    color: #ffffff;
-    
-    text-align: center;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    padding: 10px;
-    border-radius: 0.375rem 0.375rem 0.375rem 0.375rem;
-  }
   
   .datos_personales,
   .datos_cuenta {
     margin-top: 20px;
   }
   
-  .input-group {
+  .cajas {
     margin-bottom: 15px;
     justify-content: center;
   }
   
-  .input-group label {
+  .cajas label {
     display: block;
     margin-bottom: 5px;
     color: #000;
@@ -57,28 +46,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 8px;
   }
-  .error{
-    color:rgb(236, 17, 17);
-  }
-  .volver{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .inicio {
-    background-color: #086444;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    text-decoration:none
-  }
-  
-  .inicio:hover {
-    background-color: #086444;
-  }
+
   .radio {
     padding: 15px;
     display: flex;
@@ -90,30 +58,3 @@ body {
   .owner input, .user input {
     display: none;
   }
-  
-  .owner label, .user label {
-    padding: 10px;
-    cursor: pointer;
-    border: 1px solid #086444; 
-    color: #086444; 
-    border-radius: 5px;
-  }
-  
-  .owner input:checked + label, .user input:checked + label {
-    background-color: #086444;
-    color: #fff;
-  }
-  .error-container {
-    background-color: #ffe6e6;
-    color: #cc0000;
-    border: 1px solid #cc0000;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-    text-align: center;
-}
-
-.input-label.error {
-    border: 1px solid #cc0000;
-    background-color: #ffe6e6;
-}
