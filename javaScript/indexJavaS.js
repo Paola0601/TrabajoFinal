@@ -18,3 +18,8 @@ function mostrarProductos(productosMostrar) {
     productosMostrar.forEach(function (producto) {
         var card = document.createElement('div');
         card.classList.add('producto');
+
+        var image = document.createElement('img');
+        image.src = 'img/' + producto.imagen;
+        image.alt = producto.nombre;
+        card.appendChild(image);
