@@ -1,3 +1,4 @@
+*Se le recuerda que para crear el contenedor mariadb y de Apache se deben posicionar en la ruta correspondiente 
 CONTENEDOR MARIADB
 # Comando para crear la imagen
 docker build -f Dockerfile -t mi-mariadb .
