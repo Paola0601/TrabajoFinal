@@ -10,3 +10,8 @@ function cargarProductos() {
         }
     };
     xhr.send();
+}
+
+function mostrarProductos(productosMostrar) {
+    var container = document.querySelector('.productos');
+    container.innerHTML = '<h2>Nuestros Productos</h2>';
