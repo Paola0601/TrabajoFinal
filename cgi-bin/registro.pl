@@ -8,7 +8,6 @@ my $cgi = CGI->new;
 print $cgi->header('text/html; charset=UTF-8');
 
 # Recibimos los parámetros del html
-<<<<<<< HEAD
 my $nombre = $cgi->param('nombreC');
 my $correo = $cgi->param('nameSesionUsuario');
 my $password = $cgi->param('password');
@@ -21,26 +20,12 @@ my $port = 3306; # Puerto por defecto de MariaDB
 my $dsn = "DBI:mysql:database=$database;host=$hostname;port=$port";
 my $usuario = "root";
 my $contrasena = "paredes48621234";
-=======
-my $correo = $cgi->param('nameSesionUsuario');
-my $password = $cgi->param('password');
-my $password2 = $cgi->param('password2');
-
-# Hacemos la conexión con la base de datos
-my $database = "register";
-my $hostname = "mariadb";
-my $port = 3306;
-my $dsn = "DBI:mysql:database=$database;host=$hostname;port=$port";
-my $usuario = "root";
-my $contrasena = "contraseña";
->>>>>>> 259f1bde648362f4a263ec97918de9c0b37f5e58
 
 my $dbh = DBI->connect($dsn, $usuario, $contrasena, {
     RaiseError => 1,
     AutoCommit => 1,
 }) or die "No se pudo conectar a la base de datos: $DBI::errstr";
 
-<<<<<<< HEAD
 # Verificamos si el usuario ya está registrado en nuestra base de datos
 my $verificar = $dbh->prepare("SELECT COUNT(*) FROM usuarios WHERE correo = ?");
 $verificar->execute($correo);
@@ -76,6 +61,7 @@ HTML
     exit;
 }
 
+# Ejecutamos la consulta para que se agrege a nuestra base de datos
 my $sth = $dbh->prepare("INSERT INTO usuarios (dni, nombre, correo, contraseña, fecha_registro) values (?, ?, ?, ?, NOW())");
 $sth->execute($dni,$nombre,$correo,$password);
 $sth->finish();
@@ -108,8 +94,3 @@ print<<'HTML';
 HTML
 
 $dbh->disconnect();
-=======
-my $sth = $dbh->prepare("INSERT INTO usuarios values(?,?,?)");
-$sth->execute($correo,$password);
-$dbh->disconnect;
->>>>>>> 259f1bde648362f4a263ec97918de9c0b37f5e58
