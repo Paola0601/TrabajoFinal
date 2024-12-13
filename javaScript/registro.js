@@ -37,3 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             mostrarError(mensajesDeError.correoInvalido);
         } 
+        else if (!validaciones.contrasena(contrasena)) {
+            event.preventDefault();
+            mostrarError(mensajesDeError.contrasenaInvalida);
+        }
+    });
+});
