@@ -1,0 +1,60 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 100px auto;
+    text-align: left;
+    color: #000;
+    background:#ffffff;
+  
+  }
+  .perfil {
+    background-color: #ffffff;
+    color: #000;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+    width: 60%;
+    height: 90%;
+    min-width: 300px;
+    float: none;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  .datos_personales,
+  .datos_cuenta {
+    margin-top: 20px;
+  }
+  
+  .cajas {
+    margin-bottom: 15px;
+    justify-content: center;
+  }
+  
+  .cajas label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000;
+  }
+  
+  .input-label {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .radio {
+    padding: 15px;
+    display: flex;
+  }
+  .owner, .user {
+    margin-right: 20px;
+  }
+  
+  .owner input, .user input {
+    display: none;
+  }

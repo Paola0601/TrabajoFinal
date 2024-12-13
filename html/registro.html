@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../css/registro.css">
+    <script href="../javaScript/registro.js"></script>
+
+</head>
+<body>
+    <div class="perfil">
+        <div class="perfilTitulo">
+            <h1>Crear cuenta </h1>
+        </div>
+
+       
+        <div id="error-container" class="error-container" style="display: none;">
+            <p id="error-message">Por favor corrige los errores .</p>
+        </div>
+
+        <form action="../cgi-bin/registro.pl" class="datos_personales" method="post">
+            <div class="datos_personales">
+                <h3>Datos personales</h3>
+                <div class="cajas">
+                    <label>Nombre completo:</label>
+                    <input type="text" id="nombreC" name="nombreC" class="input-label" placeholder="Nombres completos">
+                </div>
+                <div class="cajas">
+                    <label>DNI</label>
+                    <input type="text" id="dni" name="dni" class="input-label" placeholder="dni">
+                </div>
+                <div class="cajas">
+                    <label>Correo electronico:</label>
+                    
+                    <input type="email" name="nameSesionUsuario" class="input-label" placeholder="Correo electrónico" required>
+                </div>
+                <div class="cajas">
+                    <label>Contraseña:</label>
+                    <input type="password" name="password" class="input-label" placeholder="Contraseña" required>
+                </div>
+                <div class="cajas">
+                    <label>Confirmar contraseña:</label>
+                    <input type="password" name="password2" class="input-label" placeholder="Repetir contraseña" required>
+                </div>
+            </div>
+           <button>Registrarse</button>
+        </form>
+    </div>
+</body>
+</html>
