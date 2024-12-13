@@ -2,12 +2,12 @@
 use strict;
 use warnings;
 use CGI;
-require "db_config.pl";
+use DBI;
 
 my $cgi = CGI->new;
 print $cgi->header('text/html; charset=UTF-8');
 
-my $correo = $cgi->param('correo');
+my $correo = $cgi->param('email');
 my $password = $cgi->param('password');
 
 sub validar_correo {
@@ -33,10 +33,20 @@ if (!$correo || !$password) {
 
 # Añadimos la validación que sea una contraseña correcta y que el correo sea válido
 if (validar_contrasena($contrasena) && validar_correo($correo)) {
-    # Verificamos que sea un usuario de nuestra tienda
-    my $dbh = conectar_db();
+    # Conectamos con la base de datos
+    my $dsn = "DBI:mysql:database=register;host=mariadb";
+    my $usuario = "root";
+    my $contrasena = "contraseña";
+
+    my $dbh = DBI->connect($dsn, $usuario, $contrasena, {
+        RaiseError => 1,
+        AutoCommit => 1,
+    }) or die "No se pudo conectar a la base de datos: $DBI::errstr";
+    
+    # Realizamos la consulta
     my $sth = $dbh->prepare("SELECT id_usuario FROM usuarios WHERE correo = ? AND contraseña = ?");
     $sth->execute($correo, $password);
+
     if (my $row = $sth->fetchrow_hashref) {
         print "<!DOCTYPE html>";
         print "<html><head><title>Errores de Registro</title>";
