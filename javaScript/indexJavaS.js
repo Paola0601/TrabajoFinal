@@ -15,3 +15,4 @@ function cargarProductos() {
 function mostrarProductos(productosMostrar) {
     var container = document.querySelector('.productos');
     container.innerHTML = '<h2>Nuestros Productos</h2>';
+    productosMostrar.forEach(function (producto) {
