@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="../css/registro.css">
+    <script href="../javaScript/registro.js"></script>
 
 </head>
 <body>
@@ -18,7 +19,7 @@
             <p id="error-message">Por favor corrige los errores .</p>
         </div>
 
-        <form action="/cgi-bin/registro.pl" class="datos_personales" method="post">
+        <form action="../cgi-bin/registro.pl" class="datos_personales" method="post">
             <div class="datos_personales">
                 <h3>Datos personales</h3>
                 <div class="cajas">
@@ -39,7 +40,7 @@
                     <input type="password" name="password2" class="input-label" placeholder="Repetir contraseña" required>
                 </div>
             </div>
-           
+           <button>Registrarse</button>
         </form>
     </div>
 </body>
