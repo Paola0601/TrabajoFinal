@@ -16,3 +16,5 @@ function mostrarProductos(productosMostrar) {
     var container = document.querySelector('.productos');
     container.innerHTML = '<h2>Nuestros Productos</h2>';
     productosMostrar.forEach(function (producto) {
+        var card = document.createElement('div');
+        card.classList.add('producto');
