@@ -33,3 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             mostrarError(mensajesDeError.camposVacios);
         } 
+        else if (!validaciones.correo(correo)) {
+            event.preventDefault();
+            mostrarError(mensajesDeError.correoInvalido);
+        } 
