@@ -21,11 +21,12 @@ USE `login`;
 
 -- Volcando estructura para tabla login.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id_usuario` int(11) NOT NULL,
+  `dni` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL DEFAULT '',
   `correo` varchar(50) NOT NULL,
   `contraseña` varchar(50) NOT NULL,
   `fecha_registro` date NOT NULL,
-  PRIMARY KEY (`id_usuario`) USING BTREE
+  PRIMARY KEY (`dni`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Volcando datos para la tabla login.usuarios: ~0 rows (aproximadamente)
