@@ -1,45 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form-login');
-    const errorLoginLabel = document.getElementById('errorLogin');
+    const form = document.querySelector('form'); // Selecciona tu formulario
     const mensajesDeError = {
         camposVacios: 'Por favor, completa todos los campos.',
-        correoInvalido: 'El correo electrónico no es válido.', 
+        dniInvalido: 'El DNI debe contener solo números y tener 8 dígitos.',
+        correoInvalido: 'El correo electrónico no es válido.',
         contrasenaInvalida: 'La contraseña debe tener al menos 8 caracteres, incluir letras y números.',
-        credencialesIncorrectas: 'Credenciales incorrectas. Intenta nuevamente.'
+        contrasenasNoCoinciden: 'Las contraseñas no coinciden.',
     };
 
+    // Función para mostrar errores
     const mostrarError = (mensaje) => {
-        errorLoginLabel.style.color = 'red';
-        errorLoginLabel.textContent = mensaje;
+        alert(mensaje);
     };
 
+    // Validaciones individuales
     const validaciones = {
-        correo: (valor) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(valor),
-        contrasena: (valor) => valor.length >= 8 && /[A-Za-z]/.test(valor) && /\d/.test(valor),
+        nombreC: (valor) => valor.trim() !== '', // No vacío
+        dni: (valor) => /^\d{8}$/.test(valor), // Solo números y 8 dígitos
+        correo: (valor) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(valor), // Formato de correo
+        contrasena: (valor) => valor.length >= 8 && /[A-Za-z]/.test(valor) && /\d/.test(valor), // 8 caracteres, letras y números
     };
 
-    (() => {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('error') === '1') {
-            mostrarError(mensajesDeError.credencialesIncorrectas);
-        }
-    })();
-
+    // Realizamos la validación y se mandará un mensaje si algo no está bien
     form.addEventListener('submit', (event) => {
-        const correo = form.querySelector('input[name="correo"]').value.trim();
+        const nombreC = form.querySelector('input[name="nombreC"]').value.trim();
+        const dni = form.querySelector('input[name="dni"]').value.trim();
+        const correo = form.querySelector('input[name="nameSesionUsuario"]').value.trim();
         const contrasena = form.querySelector('input[name="password"]').value.trim();
+        const confirmarContrasena = form.querySelector('input[name="password2"]').value.trim();
 
-        if (!correo || !contrasena) {
-            event.preventDefault();
+        // Validamos que el usuario no ingrese campos vacíos
+        if (!nombreC || !dni || !correo || !contrasena || !confirmarContrasena) {
+            event.preventDefault(); // Evita el envío del formulario
             mostrarError(mensajesDeError.camposVacios);
-        } 
-        else if (!validaciones.correo(correo)) {
+            return;
+        }
+
+        // Validamos el dni
+        if (!validaciones.dni(dni)) {
+            event.preventDefault();
+            mostrarError(mensajesDeError.dniInvalido);
+            return;
+        }
+
+        // Validamos el correo
+        if (!validaciones.correo(correo)) {
             event.preventDefault();
             mostrarError(mensajesDeError.correoInvalido);
-        } 
-        else if (!validaciones.contrasena(contrasena)) {
+            return;
+        }
+
+        // Validamos la contraseña
+        if (!validaciones.contrasena(contrasena)) {
             event.preventDefault();
             mostrarError(mensajesDeError.contrasenaInvalida);
+            return;
+        }
+
+        // Verificamos que ambas contraseñas sean iguales
+        if (contrasena !== confirmarContrasena) {
+            event.preventDefault();
+            mostrarError(mensajesDeError.contrasenasNoCoinciden);
+            return;
         }
     });
 });

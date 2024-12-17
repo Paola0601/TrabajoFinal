@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmacia</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/index.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="javaScript/index.js" defer></script>
 </head>
 
 <body>
@@ -14,20 +14,24 @@
     <header>
         <div id="buscador">
             <div id="search-bar">
-                 
                 <input type="text" id="search-input" placeholder="Buscar productos...">
-                <button onclick="buscarLibros()">Buscar</button> 
+                <button onclick="buscarProductos()">Buscar</button> 
             </div>
-             <a href ="registro.html" class ="boton">Registro</a>
+            <div id="search-bar">
+                <a href="html/login.html" class="boton">Iniciar Sesión</a>
+                <a href ="html/registro.html" class ="boton">Registro</a>
+            </div>
             <div id="cart-button" >
-                <img src="../Imagenes/carrito.png" alt="Carrito de Compras">
+                <img src="/Imagenes/carrito.png" alt="Carrito de Compras">
             </div>
         </div>
     </header>
 
     <main>
         <h2>Productos</h2>
-
+        <div id="productos">
+            <!-- Productos que aparecerán en nuestra página principal -->
+        </div>
     </main>
 
     <footer>

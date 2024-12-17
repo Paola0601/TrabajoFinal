@@ -1,9 +1,9 @@
-var productos = []; // Almacenar los libros
+var productos = []; // Almacenar los productos de la farmacia
 
-// Función para cargar los libros usando AJAX usa recuperarlibros.pl
+// Función para cargar los libros usando AJAX usa productos.pl
 function cargarLibros() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/cgi-bin/recuperarlibros.pl', true);
+    xhr.open('GET', '../cgi-bin/productos.pl', true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             libros = JSON.parse(xhr.responseText);
@@ -13,47 +13,47 @@ function cargarLibros() {
     xhr.send();
 }
 
-// Función para mostrar los libros
-function mostrarLibros(librosMostrar) {
-    var container = document.getElementById('books-container');
-    container.innerHTML = ''; // Limpiar los libros actuales
+// Función para mostrar los productos
+function mostrarProductos(productosMostrar) {
+    var container = document.getElementById('productos');
+    container.innerHTML = ''; // Limpiar los productos actuales
 
-    librosMostrar.forEach(function (libro) {
+    productosMostrar.forEach(function (producto) {
         var card = document.createElement('div');
         card.classList.add('book-card');
 
         var image = document.createElement('img');
-        image.src = '/images/' + libro.imagen;
-        image.alt = libro.nombre;
+        image.src = '/images/' + producto.imagen;
+        image.alt = producto.nombre;
         image.classList.add('book-image');
         card.appendChild(image);
 
         var title = document.createElement('h2');
-        title.textContent = libro.nombre;
+        title.textContent = producto.nombre;
         title.classList.add('book-title');
         card.appendChild(title);
 
         var price = document.createElement('p');
-        price.textContent = 'Precio: S/ ' + libro.precio;
+        price.textContent = 'Precio: S/ ' + producto.precio;
         price.classList.add('book-price');
         card.appendChild(price);
 
         var button = document.createElement('button');
         button.classList.add('add-to-cart');
-        button.innerHTML = '<img src="/images/carrito-de-compras.png" alt="Carrito" class="cart-icon"> Añadir';
+        button.innerHTML = '<img src="../images/carrito.png" alt="Carrito" class="cart-icon"> Añadir';
         card.appendChild(button);
 
         container.appendChild(card);
     });
 }
 
-// Función para filtrar los libros por el nombre
-function buscarLibros() {
+// Función para filtrar los productos por el nombre
+function buscarProductos() {
     var query = document.getElementById('search-input').value.toLowerCase();
-    var librosFiltrados = libros.filter(function (libro) {
+    var productosFiltrados = libros.filter(function (libro) {
         return libro.nombre.toLowerCase().includes(query);
     });
-    mostrarLibros(librosFiltrados);
+    mostrarProductos(productosFiltrados);
 }
 
 // Función para verificar si el usuario está logueado
