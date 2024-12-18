@@ -1,48 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="../css/registro.css">
 </head>
 <body>
-    <div class="perfil">
-        <div class="perfilTitulo">
-            <h1>Crear cuenta </h1>
-        </div>
-
-        <div id="error-container" class="error-container" style="display: none;">
-            <p id="error-message">Por favor corrige los errores .</p>
-        </div>
-
-        <form action="../cgi-bin/registro.pl" class="datos_personales" method="post">
-            <div class="datos_personales">
-                <h3>Datos personales</h3>
-                <div class="cajas">
-                    <label>Nombre completo:</label>
-                    <input type="text" id="nombreC" name="nombreC" class="input-label" placeholder="Nombres completos">
-                </div>
-                <div class="cajas">
-                    <label>DNI</label>
-                    <input type="text" id="dni" name="dni" class="input-label" placeholder="dni">
-                </div>
-                <div class="cajas">
-                    <label>Correo electronico:</label>
-                    <input type="email" name="nameSesionUsuario" class="input-label" placeholder="Correo electrónico" required>
-                </div>
-                <div class="cajas">
-                    <label>Contraseña:</label>
-                    <input type="password" name="password" class="input-label" placeholder="Contraseña" required>
-                </div>
-                <div class="cajas">
-                    <label>Confirmar contraseña:</label>
-                    <input type="password" name="password2" class="input-label" placeholder="Repetir contraseña" required>
-                </div>
+    <header>
+        <h1>Farmacia</h1>
+    </header>
+    <main>
+        <div class="perfil">
+            <div class="perfilTitulo">
+                <h1>Crear cuenta</h1>
             </div>
-           <button>Registrarse</button>
-        </form>
-        <script src="../javaScript/registro.js"></script>
-    </div>
+
+            <div id="error-container" class="error-container" style="display: none;">
+                <p id="error-message">Por favor corrige los errores.</p>
+            </div>
+
+            <form action="../cgi-bin/registro.pl" class="datos_personales" method="post">
+                <div class="cajas">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" class="input-label" required>
+                </div>
+                <div class="cajas">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" class="input-label" required>
+                </div>
+                <div class="cajas">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" class="input-label" required>
+                </div>
+                <div class="cajas">
+                    <label for="confirm-password">Confirmar Contraseña</label>
+                    <input type="password" id="confirm-password" name="confirm-password" class="input-label" required>
+                </div>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Renato Ponce & Paola Mayta & Rodrigo Flores & Fabricio Paredes</p>
+    </footer>
 </body>
 </html>

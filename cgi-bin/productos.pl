@@ -20,7 +20,7 @@ my $dbh = DBI->connect($dsn, $usuario, $contrasena, {
 }) or die "No se pudo conectar a la base de datos: $DBI::errstr";
 
 # Preparar y ejecutar la consulta para obtener los libros
-my $sth = $dbh->prepare("SELECT nombre, descripcion, precio FROM productos");
+my $sth = $dbh->prepare("SELECT nombre, descripcion, precio,imagen FROM productos");
 $sth->execute();
 
 # Extraemos los resultados
@@ -30,11 +30,13 @@ while (my $row = $sth->fetchrow_hashref) {
         nombre => $row->{nombre},
         descripcion => $row->{descripcion},
         precio => $row->{precio},
+        imagen => $row->{imagen},
     };
 }
 
 # Convertir los resultados a formato JSON
-print $cgi->header('aplication/json');
+print $cgi->header('application/json');
+
 print to_json(\@productos);
 
 # Cerramos la conexión con la base de datos

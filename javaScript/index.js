@@ -1,13 +1,13 @@
 var productos = []; // Almacenar los productos de la farmacia
 
-// Función para cargar los libros usando AJAX usa productos.pl
-function cargarLibros() {
+// Función para cargar los productos usando AJAX usa productos.pl
+function cargarProductos() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '../cgi-bin/productos.pl', true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            libros = JSON.parse(xhr.responseText);
-            mostrarLibros(libros);
+            productos = JSON.parse(xhr.responseText);
+            mostrarProductos(productos);
         }
     };
     xhr.send();
@@ -20,22 +20,22 @@ function mostrarProductos(productosMostrar) {
 
     productosMostrar.forEach(function (producto) {
         var card = document.createElement('div');
-        card.classList.add('book-card');
+        card.classList.add('product-card');
 
         var image = document.createElement('img');
-        image.src = '/images/' + producto.imagen;
+        image.src = '/Imagenes/' + producto.imagen;
         image.alt = producto.nombre;
-        image.classList.add('book-image');
+        image.classList.add('product-image');
         card.appendChild(image);
 
         var title = document.createElement('h2');
         title.textContent = producto.nombre;
-        title.classList.add('book-title');
+        title.classList.add('product-title');
         card.appendChild(title);
 
         var price = document.createElement('p');
         price.textContent = 'Precio: S/ ' + producto.precio;
-        price.classList.add('book-price');
+        price.classList.add('product-price');
         card.appendChild(price);
 
         var button = document.createElement('button');
@@ -50,8 +50,8 @@ function mostrarProductos(productosMostrar) {
 // Función para filtrar los productos por el nombre
 function buscarProductos() {
     var query = document.getElementById('search-input').value.toLowerCase();
-    var productosFiltrados = libros.filter(function (libro) {
-        return libro.nombre.toLowerCase().includes(query);
+    var productosFiltrados = productos.filter(function (producto) {
+        return producto.nombre.toLowerCase().includes(query);
     });
     mostrarProductos(productosFiltrados);
 }
@@ -81,8 +81,8 @@ function cerrarSesion() {
     window.location.href = '../index.html'; // Redirigir al inicio
 }
 
-// Llamar a la función cargarLibros cuando la página se haya cargado
+// Llamar a la función cargarProductos cuando la página se haya cargado
 window.onload = function () {
-    cargarLibros();
+    cargarProductos();
     verificarUsuario(); // Verificar si el usuario está logueado
 };
