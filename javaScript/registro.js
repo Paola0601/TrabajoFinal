@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Realizamos la validación y se mandará un mensaje si algo no está bien
     form.addEventListener('submit', (event) => {
-        const nombreC = form.querySelector('input[name="nombreC"]').value.trim();
+        const nombre = form.querySelector('input[name="nombre"]').value.trim();
         const dni = form.querySelector('input[name="dni"]').value.trim();
-        const correo = form.querySelector('input[name="nameSesionUsuario"]').value.trim();
+        const correo = form.querySelector('input[name="correo"]').value.trim();
         const contrasena = form.querySelector('input[name="password"]').value.trim();
-        const confirmarContrasena = form.querySelector('input[name="password2"]').value.trim();
+        const confirmarContrasena = form.querySelector('input[name="confirm-password"]').value.trim();
 
         // Validamos que el usuario no ingrese campos vacíos
-        if (!nombreC || !dni || !correo || !contrasena || !confirmarContrasena) {
+        if (!nombre || !dni || !correo || !contrasena || !confirmarContrasena) {
             event.preventDefault(); // Evita el envío del formulario
             mostrarError(mensajesDeError.camposVacios);
             return;

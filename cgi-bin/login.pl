@@ -32,7 +32,8 @@ $sth->finish();
 if (my $row = $sth->fetchrow_hashref) {
     # Usuario encontrado
     print <<HTML;
-        <html>
+        <!DOCTYPE html>
+        <html lang="es">
         <head>
             <script>
                 localStorage.setItem('nombre_usuario', '$row->{nombre}');
@@ -48,6 +49,8 @@ HTML
 } else {
     # Error en el correo o la contraseña
     print <<HTML;
+    <!DOCTYPE html>
+    <html lang="es">
     <html>
     <body>
         <h3>Hubo un error, revise su correo y/o contraseña</h3>

@@ -20,7 +20,7 @@ my $dbh = DBI->connect($dsn, $usuario, $contrasena, {
 }) or die "No se pudo conectar a la base de datos: $DBI::errstr";
 
 # Preparar y ejecutar la consulta para obtener los libros
-my $sth = $dbh->prepare("SELECT nombre, descripcion, precio,imagen FROM productos");
+my $sth = $dbh->prepare("SELECT nombre, descripcion, precio, imagen FROM productos");
 $sth->execute();
 
 # Extraemos los resultados

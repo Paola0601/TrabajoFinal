@@ -9,10 +9,10 @@ my $cgi = CGI->new;
 print $cgi->header('text/html; charset=UTF-8');
 
 # Recibimos los parámetros del HTML
-my $nombre = $cgi->param('nombreC');
-my $correo = $cgi->param('nameSesionUsuario');
-my $password = $cgi->param('password');
+my $nombre = $cgi->param('nombre');
 my $dni = $cgi->param('dni');
+my $correo = $cgi->param('correo');
+my $password = $cgi->param('password');
 
 # Hacemos la conexión con la base de datos
 my $database = "data_base";
@@ -51,9 +51,6 @@ if ($@) {
     exit;
 }
 
-# Desconectar de la base de datos
-$dbh->disconnect();
-
 # Mostrar mensaje de éxito
 print <<'HTML';
 <!DOCTYPE html>
@@ -62,7 +59,7 @@ print <<'HTML';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Exitoso</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/registro.css">
 </head>
 <body>
     <header>
@@ -97,7 +94,7 @@ sub mostrar_error {
     </header>
     <main>
         <section class="login">
-            <h2>Este usuario ya fue registrado anteriormente</h2>
+            <h2>$mensaje</h2>
             <a href='../html/registro.html'>Volver al formulario</a>
         </section>
     </main>
@@ -108,3 +105,6 @@ sub mostrar_error {
 </html>
 HTML
 }
+
+# Desconectar de la base de datos
+$dbh->disconnect();
