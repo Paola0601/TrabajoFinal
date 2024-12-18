@@ -5,6 +5,9 @@ use DBI;
 use CGI qw(:standard);
 use JSON;
 
+# Creamos el objeto CGI
+my $cgi = CGI->new;
+
 # Hacemos la conexión con la base de datos
 my $database = "data_base"; # Nombre de la base de datos
 my $hostname = "mariadb"; # Nombre del contenedor que la contiene

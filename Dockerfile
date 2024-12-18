@@ -4,7 +4,7 @@ FROM debian:latest
 # Actualiza e instala los paquetes necesarios
 RUN apt-get update && \
     apt-get install -y apache2 libapache2-mod-perl2 perl mariadb-server dos2unix \
-    libdbi-perl libdbd-mysql-perl vim && \
+    libdbi-perl libdbd-mysql-perl libjson-perl vim && \
     apt-get clean
 
 # Habilita el módulo CGI de Apache
