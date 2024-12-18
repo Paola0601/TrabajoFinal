@@ -39,9 +39,24 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `precio` decimal(20,6) NOT NULL,
   `categoria` varchar(50) NOT NULL,
   PRIMARY KEY (`id_producto`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Volcando datos para la tabla data_base.productos: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla data_base.productos: ~14 rows (aproximadamente)
+INSERT INTO `productos` (`id_producto`, `nombre`, `descripcion`, `precio`, `categoria`) VALUES
+	(1, 'Paracetamol 500mg', 'Pastillas para fiebre y dolor', 2.500000, 'Analgesicos'),
+	(2, 'Ibuprofeno 400mg', 'Antiinflamatorio y analgésico', 3.200000, 'Antiinflamatorios'),
+	(3, 'Amoxicilina 500mg', 'Antibiótico de amplio espectro', 7.500000, 'Antibióticos'),
+	(4, 'Jarabe para la tos', 'Alivio de tos seca', 4.800000, 'Jarabes'),
+	(5, 'Vitamina C 1000mg', 'Suplemento para el sistema inmunológico', 5.000000, 'Vitaminas'),
+	(6, 'Loratadina 10mg', 'Antihistamínico para alergias', 2.700000, 'Antialérgicos'),
+	(7, 'Omeprazol 20mg', 'Protector gástrico', 6.300000, 'Antiácidos'),
+	(8, 'Salbutamol Inhalador', 'Broncodilatador para asma', 15.000000, 'Inhaladores'),
+	(9, 'Metformina 850mg', 'Control de glucosa en diabetes', 3.900000, 'Antidiabéticos'),
+	(10, 'Diclofenaco Gel', 'Antiinflamatorio tópico', 6.500000, 'Cremas y Gel'),
+	(11, 'Clorfenamina 4mg', 'Antihistamínico para rinitis alérgica', 1.800000, 'Antialérgicos'),
+	(12, 'Acetaminofén Gotas', 'Analgésico para niños', 3.200000, 'Analgésicos'),
+	(13, 'Jarabe Ambroxol', 'Mucolítico para vías respiratorias', 4.500000, 'Jarabes'),
+	(14, 'Insulina 100 UI', 'Hormona para control de diabetes', 25.000000, 'Antidiabéticos');
 
 -- Volcando estructura para tabla data_base.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
