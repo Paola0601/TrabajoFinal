@@ -1,5 +1,4 @@
 body {
-    height: 100vh;
     width: 100%;
     background: #f8f9fa;
     font-family: "Open Sans", sans-serif;
@@ -46,7 +45,7 @@ main {
 }
 
 .input-field input {
-    width: 100%;
+    width: 95%;
     padding: 10px 15px;
     font-size: 1rem;
     border: 1px solid #717171;
