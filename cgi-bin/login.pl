@@ -24,6 +24,7 @@ my $dbh = DBI->connect($dsn, $usuario, $contrasena, {
     AutoCommit => 1,
 }) or die "No se pudo conectar a la base de datos: $DBI::errstr";
 
+# Realizamos la consulta a la base de datos
 my $sth = $dbh->prepare("SELECT FROM usuarios WHERE correo = ? AND contraseña = ?");
 $sth->execute($correo,$password);
 $sth->finish();
@@ -39,6 +40,8 @@ if (my $row = $sth->fetchrow_hashref) {
             </script>
         </head>
         <body>
+            <h3>Inicio sesión correctamente puede volver al inicio</h3>
+            <a href="../index.html">Volver</a>
         </body>
         </html>
 HTML
@@ -47,6 +50,8 @@ HTML
     print <<HTML;
     <html>
     <body>
+        <h3>Hubo un error, revise su correo y/o contraseña</h3>
+        <a href="../index.html">Volver</a>
         <script>
             window.location.href = '../login.html?error=1';
         </script>
@@ -55,4 +60,5 @@ HTML
 HTML
 }
 
+# Cerramos la conexión con la base de datos
 $dbh->disconnect();

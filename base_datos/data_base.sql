@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(50) NOT NULL,
   `precio` decimal(20,6) NOT NULL,
-  `categoria` varchar(50) NOT NULL,
+  `imagen` varchar(255) NOT NULL,
   PRIMARY KEY (`id_producto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -75,3 +75,12 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+INSERT INTO productos (nombre, descripcion, precio, imagen) VALUES
+('Paracetamol', 'Este producto es bueno para la tos', 10.00, 'paracetamol.jpg'),
+('Ibuprofeno', 'Este producto es bueno para el dolor de cabeza', 15.00, 'ibuprofeno.jpg'),
+('Omeprazol', 'Este producto es bueno para el dolor de estomago', 20.00, 'omeprazol.jpg'),
+('Aspirina', 'Este producto es bueno para el dolor de cabeza', 5.00, 'aspirina.jpg'),
+('Diclofenaco', 'Este producto es bueno para el dolor de cabeza', 25.00, 'diclofenaco.jpg'),
+('Amoxicilina', 'Este producto es bueno para la tos', 30.00, 'amoxicilina.jpg'),
+('Loratadina', 'Este producto es bueno para la tos', 35.00, 'loratadina.jpg'),
+('Clonazepam', 'Este producto es bueno para la tos', 40.00, 'clonazepam.jpg');
