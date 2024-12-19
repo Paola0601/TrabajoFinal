@@ -22,11 +22,11 @@ USE `data_base`;
 -- Volcando estructura para tabla data_base.compras
 CREATE TABLE IF NOT EXISTS `compras` (
   `id_compra` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` varchar(50) NOT NULL,
-  `productos` varchar(50) NOT NULL,
-  `total` decimal(20,6) NOT NULL DEFAULT 0.000000,
-  `fecha` date NOT NULL DEFAULT '0000-00-00',
-  PRIMARY KEY (`id_compra`) USING BTREE
+  `id_usuario` varchar(50) DEFAULT NULL,
+  `productos` varchar(50) DEFAULT NULL,
+  `total` decimal(20,2) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  PRIMARY KEY (`id_compra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Volcando datos para la tabla data_base.compras: ~0 rows (aproximadamente)
@@ -34,32 +34,32 @@ CREATE TABLE IF NOT EXISTS `compras` (
 -- Volcando estructura para tabla data_base.productos
 CREATE TABLE IF NOT EXISTS `productos` (
   `id_producto` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
-  `descripcion` varchar(50) NOT NULL,
-  `precio` decimal(20,6) NOT NULL,
-  `imagen` varchar(255) NOT NULL,
+  `nombre` varchar(50) DEFAULT '0',
+  `descripcion` varchar(50) DEFAULT '0',
+  `precio` decimal(20,2) DEFAULT NULL,
+  `imagen` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id_producto`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Volcando datos para la tabla data_base.productos: ~14 rows (aproximadamente)
-INSERT INTO "productos" (nombre, descripcion, precio, imagen) VALUES
-('Paracetamol', 'Este producto es bueno para la tos', 10.00, 'paracetamol.jpg'),
-('Ibuprofeno', 'Este producto es bueno para el dolor de cabeza', 15.00, 'ibuprofeno.jpg'),
-('Omeprazol', 'Este producto es bueno para el dolor de estomago', 20.00, 'omeprazol.jpg'),
-('Aspirina', 'Este producto es bueno para el dolor de cabeza', 5.00, 'aspirina.jpg'),
-('Diclofenaco', 'Este producto es bueno para el dolor de cabeza', 25.00, 'diclofenaco.jpg'),
-('Amoxicilina', 'Este producto es bueno para la tos', 30.00, 'amoxicilina.jpg'),
-('Loratadina', 'Este producto es bueno para la tos', 35.00, 'loratadina.jpg'),
-('Clonazepam', 'Este producto es bueno para la tos', 40.00, 'clonazepam.jpg');
+-- Volcando datos para la tabla data_base.productos: ~8 rows (aproximadamente)
+INSERT INTO `productos` (`id_producto`, `nombre`, `descripcion`, `precio`, `imagen`) VALUES
+	(1, 'Paracetamol', 'Medicamento utilizado para reducir la fiebre y ali', 10.00, 'paracetamol.jpg'),
+	(2, 'Ibuprofeno', 'Antiinflamatorio no esteroideo que ayuda a reducir', 15.00, 'ibuprofeno.jpg'),
+	(3, 'Omeprazol', 'Inhibidor de la acidez gástrica usado para tratar ', 20.00, 'omeprazol.jpg'),
+	(4, 'Aspirina', 'Medicamento utilizado para aliviar dolores leves, ', 5.00, 'aspirina.jpg'),
+	(5, 'Diclofenaco', 'Anti-inflamatorio eficaz para aliviar dolores musc', 25.00, 'diclofenaco.jpg'),
+	(6, 'Amoxicilina', 'Antibiótico indicado para tratar infecciones bacte', 30.00, 'amoxicilina.jpg'),
+	(7, 'Loratadina', 'Antihistamínico que alivia los síntomas de alergia', 35.00, 'loratadina.jpg'),
+	(8, 'Clonazepam', 'Medicamento ansiolítico usado para tratar trastorn', 40.00, 'clonazepam.jpg');
 
 -- Volcando estructura para tabla data_base.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `dni` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL DEFAULT '',
-  `correo` varchar(50) NOT NULL,
-  `contraseña` varchar(50) NOT NULL,
-  `fecha_registro` date NOT NULL,
-  PRIMARY KEY (`dni`) USING BTREE
+  `dni` int(8) NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `correo` varchar(50) DEFAULT NULL,
+  `contraseña` varchar(50) DEFAULT NULL,
+  `fecha_registro` date DEFAULT NULL,
+  PRIMARY KEY (`dni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Volcando datos para la tabla data_base.usuarios: ~0 rows (aproximadamente)
