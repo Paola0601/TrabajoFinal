@@ -1,6 +1,6 @@
 var productos = []; // Almacenar los productos de la farmacia
 
-// Función para cargar los productos usando AJAX usa productos.pl
+// Función para cargar los productos usando AJAX
 function cargarProductos() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '../cgi-bin/productos.pl', true);
@@ -68,7 +68,6 @@ function mostrarProductos(productosMostrar) {
     });
 }
 
-
 // Función para filtrar los productos por el nombre
 function buscarProductos() {
     var query = document.getElementById('search-input').value.toLowerCase();
@@ -80,14 +79,22 @@ function buscarProductos() {
 
 // Función para verificar si el usuario está logueado
 function verificarUsuario() {
-    var nombreUsuario = localStorage.getItem('nombre_usuario'); // Suponiendo que guardas el nombre del usuario en localStorage
+    var nombreUsuario = getCookie('nombre_usuario'); // Obtener el nombre del usuario desde las cookies
     var loginButton = document.getElementById('login-button');
 
     if (nombreUsuario) {
-        loginButton.innerHTML = '<button id="user-button" onclick="toggleMenu()">' + nombreUsuario + '</button>';
-        document.getElementById('logout-menu').style.display = 'none'; // Iniciar con el menú oculto
+        if (loginButton) {
+            loginButton.innerHTML = '<button id="user-button" onclick="toggleMenu()">' + nombreUsuario + '</button>';
+            document.getElementById('logout-menu').style.display = 'none'; // Iniciar con el menú oculto
+        }
+        var nombreUsuarioSpan = document.getElementById('nombre-usuario');
+        if (nombreUsuarioSpan) {
+            nombreUsuarioSpan.textContent = nombreUsuario;
+        }
     } else {
-        loginButton.innerHTML = '<button onclick="window.location.href=\'../login.html\'">Login</button>';
+        if (loginButton) {
+            loginButton.innerHTML = '<button onclick="window.location.href=\'../html/login.html\'">Login</button>';
+        }
     }
 }
 
@@ -99,12 +106,30 @@ function toggleMenu() {
 
 // Función para cerrar sesión
 function cerrarSesion() {
-    localStorage.removeItem('nombre_usuario');
+    document.cookie = 'nombre_usuario=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     window.location.href = '../index.html'; // Redirigir al inicio
+}
+
+// Función para obtener el valor de una cookie
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
 // Llamar a la función cargarProductos cuando la página se haya cargado
 window.onload = function () {
-    cargarProductos();
-    verificarUsuario(); // Verificar si el usuario está logueado
+    var path = window.location.pathname;
+    if (path.includes('bienvenida.html')) {
+        var nombreUsuario = getCookie('nombre_usuario');
+        if (nombreUsuario) {
+            document.getElementById('nombre-usuario').textContent = nombreUsuario;
+            cargarProductos();
+        } else {
+            window.location.href = '../html/login.html'; // Redirigir al login si no hay usuario
+        }
+    } else {
+        cargarProductos();
+        verificarUsuario(); // Verificar si el usuario está logueado
+    }
 };
